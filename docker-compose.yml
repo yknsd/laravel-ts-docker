@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+  proxy:
+    container_name: proxy
+    build: ./infra/nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./app:/usr/share/nginx/html
+    depends_on:
+      - app
+  app:
+    container_name: app
+    build: ./infra/php
+    volumes:
+      - ./app:/var/www
+  db:
+    container_name: db
+    build: ./infra/mysql
+    environment:
+      MYSQL_DATABASE: 'app_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./infra/mysql/conf.d:/etc/mysql/conf.d
+      - db-volume:/var/lib/mysql
+volumes:
+  db-volume:
