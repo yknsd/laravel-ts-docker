@@ -25,8 +25,8 @@ RUN apt-get install -y npm \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
-RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/www/html
 
 RUN composer global require "laravel/installer"

@@ -14,7 +14,7 @@ services:
     container_name: app
     build: ./infra/php
     volumes:
-      - ./app:/var/www
+      - ./app:/var/www/html
   db:
     container_name: db
     build: ./infra/mysql
