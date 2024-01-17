@@ -12,7 +12,9 @@ services:
       - app
   app:
     container_name: app
-    build: ./infra/php
+    build:
+      context: .
+      dockerfile: ./infra/php/Dockerfile
     volumes:
       - ./app:/var/www/html
   db:
