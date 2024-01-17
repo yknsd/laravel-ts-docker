@@ -1,0 +1,7 @@
+/app/.editorconfig
+/app/.env.example
+/app/.git*
+/app/node_modules
+/app/tests
+/app/vendor
+/app/README.md
