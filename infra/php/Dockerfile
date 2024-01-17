@@ -47,3 +47,5 @@ RUN chown -R $WORK_USER:$WORK_USER $ENTRY_PATH/storage \
 
 USER $WORK_USER
 RUN composer install --no-dev
+
+RUN npm ci
